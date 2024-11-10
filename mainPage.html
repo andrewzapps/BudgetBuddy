@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <!--Declares information about website-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Budget Buddy</title>
+
+        <!--Links external CSS stylesheet and javascript code-->
+        <link rel="stylesheet" href=style.css>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    </head>
+
+    <body>
+        <!--Generates the navigation bar with several links to take the user to different pages-->
+        <nav>
+            <a id="budgetBuddyNavBar" href="mainPage.html">Budget Buddy</a>
+            <a id="helpNavBar" href="help.html">Help</a>
+            <a id="signInNavBar" href="signIn.html">Sign In</a>
+            <a id="createAccountNavBar" href="createAccount.html">Create Account</a>
+        </nav>
+
+        <br>
+
+        <!--Displays the current balance-->
+        <div align="center">
+            <div class="currentBalance">
+            <p id="currentBalanceLabel2">Current balance in bank account: <span id="dollarSign">$</span><span id="currentBalanceDisplay">0</span> </p>
+        </div>
+
+        <br>
+
+        <!--Generates the search functionality and filter buttons-->
+        <div align="center">
+            <button id="searchButton" style="width: 150px;">Search</button>
+            <button id="hideSearchButton" style="width: 150px;">Hide search</button>
+            <div class="searchInfo">
+                <label style="font-size: 16px;" id="storeSearchLabel">Search: </label>
+                <input type="text" id="storeSearchInput">
+            </div>
+            <button id="filterButton" style="width: 150px;">Filter</button>
+            <button id="hideFilterButton" style="width: 150px;">Hide filters</button>
+        </div>
+
+        <!--Makes all filter inputs-->
+        <div align="center" class="filterInfo">
+            <label style="font-size: 16px;">Amount:</label>
+            <input type="number" id="filterAmountInput" step="1">
+            
+            <label style="font-size: 16px;">Transaction Type:</label>
+            <select id="transactionTypeSelect">
+                <option value="All">All</option>
+                <option value="Withdrawal">Withdrawal</option>
+                <option value="Deposit">Deposit</option>
+            </select>
+            
+            <label style="font-size: 16px;">Date:</label>
+            <input type="date" id="filterDateInput">
+            
+            <label style="font-size: 16px;">Category:</label>
+            <select id="filterCategorySelect">
+                <option value="All">All</option>
+                <option>Necessity</option>
+                <option>Entertainment</option>
+                <option>Miscellaneous</option>
+            </select>
+            
+            <label style="font-size: 16px;">Source:</label>
+            <select id="filterSourceSelect">
+                <option value="All">All</option>
+                <option>Work</option>
+                <option>Parents/family</option>
+            </select>
+            
+            <button id="clearFilterButton">Clear</button>
+            <button id="applyFilterButton">Filter</button>
+            <br>
+        </div>
+
+        <br>
+        
+        <!--Makes the buttons to record a withdrawal or hide a withdrawal-->
+        <button id="recordWithdrawalButton">Record/Edit Withdrawal</button>
+        <button id="hideWithdrawalButton">Hide Withdrawal Info</button>
+
+        <!--Makes all inputs for the withdrawal transaction information, and generates a button to submit these inputs-->
+        <div class="withdrawalInfo">
+            <br>
+            <label id="amountInputWithdrawalLabel">Amount: $</label> 
+            <input id="amountInputWithdrawal" type="number" min="0">
+
+            <label id="categorySelectLabel">Category: </label> 
+            <select id="categorySelect">
+                <option>Necessity</option>
+                <option>Entertainment</option>
+                <option>Miscellaneous</option>
+            </select>
+
+            <label id="storeInputLabel">Store: </label>
+            <input id="storeInput">
+
+            <label id="dateSelectWithdrawalLabel">Date: </label>
+            <input id="dateSelectWithdrawal" type="date">
+            
+            <button id="submitWithdrawalButton">Submit</button>
+        </div>
+
+        <br>
+
+        <!--Makes the buttons to record a deposit or hide a deposit-->
+        <button id="recordDepositButton">Record/Edit Deposit</button>
+        <button id="hideDepositButton">Hide Deposit Info</button>
+
+        <br>
+
+        <!--Makes all inputs for the deposit transaction information, and generates a button to submit these inputs-->
+        <div class="depositInfo">
+            <label id="amountInputDepositLabel">Amount: $</label>
+            <input id="amountInputDeposit" type="number">
+
+            <label id="sourceSelectLabel">Source: </label>
+            <select id="sourceSelect">
+                <option>Work</option>
+                <option>Parents/family</option>
+                <option>Other</option>
+            </select>
+            
+            <label id="dateSelectDepositLabel">Date: </label>
+            <input id="dateSelectDeposit" type="date">
+            
+            <button id="submitDepositButton">Submit</button>
+
+            <br>
+
+        </div>
+
+        <!--A button to submit edits-->
+        <button id="submitEditButton">Submit edit</button>
+
+        <!--Generates a table to display the transactions-->
+        <div id="transactionsTable">
+            <table>
+                <tr>
+                    <th>Type</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Store</th>
+                    <th>Source</th>
+                    <th>Date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    <th>Hide Edit</th>
+                </tr>
+            </table>
+        </div>
+
+        <!--Buttons to generate a monthly summary or weekly summary-->
+        <button id="generateMonthSummaryButton">Generate Monthly Summary</button>
+        <button id="generateWeekSummaryButton">Generate Weekly Summary</button>
+
+        <br>
+
+        <!--Location for the summary-->
+        <div id="summaryDisplay"></div>
+
+        <!--Hide summary-->
+        <button id="hideSummaryButton" class="hideSummary" style="display: none">Hide Summary</button>
+        <br class="hideSummary" style="display: none;">
+
+        <!--Button to send a copy of transaction table to email-->
+        <button id="sendEmailButton">Forward To Email</button>
+
+        <br>
+
+        <!--Possible messages for sending the email-->
+        <label id="emailNoDataMessage" style="display: none;">No transaction data found to send.</label>
+        <label id="emailSuccessMessage" style="display: none;">Transaction data sent to your email!</label>
+        <label id="emailErrorMessage" style="display: none;">There was an error sending the email.</label>
+
+        <!--Script to link the emailJS API-->
+        <script type="text/javascript">
+            (function() {
+            emailjs.init("NwJ71Kl204O620SIe");
+            })();
+        </script>
+
+        <!--Adds the functionality for the sendEmail button-->
+        <script>
+            // Public API key
+            emailjs.init('NwJ71Kl204O620SIe');
+        
+            // Function that is called when the sendEmailButton is clicked
+            document.getElementById('sendEmailButton').addEventListener('click', function() {
+                // Gets email from account creation
+                const emailAddress = localStorage.getItem('email');
+
+                // Gets table rows
+                const tableRows = document.querySelectorAll('#transactionsTable tr');
+                let tableData = '';
+                
+                // Gets table headers
+                const headerCells = tableRows[0].querySelectorAll('th');
+                let headerData = '';
+                
+                // Gets the headers of the table, excluding the last 3 (edit, delete, hideEdit)
+                for (let i = 0; i < headerCells.length - 3; i++) {
+                    let header = headerCells[i].innerText
+
+                    // Add the header to the existing headerData
+                    headerData += header;
+
+                    // If it is not the last column, the headers are separated by a comma and a space
+                    if (i != 5){
+                        headerData += ', ';
+                    }
+                }
+
+                // Adds headerData to final email, followed by 3 lines for spacing
+                tableData += headerData + '\n' + '\n' + '\n';
+
+                // Iterates through all rows filled with table data
+                for (let i = 1; i < tableRows.length; i++) {
+                    // Gets current row
+                    const row = tableRows[i];
+
+                    // Gets all data cells
+                    const cells = row.querySelectorAll('td');
+
+                    // Declares an empty variable to represent the current row
+                    let rowData = '';
+
+                    // Iterates through the current row through to get the current cell, excluding the last 3
+                    for (let j = 0; j < cells.length - 3; j++) {
+                        let currentCell = cells[j].innerText;
+
+                        // Adds the current cell to the existing rowData
+                        rowData += currentCell
+
+                        //If the data is not the last column, the cells are separated by a comma and a space
+                        if (j != 5){
+                            rowData += ", ";
+                        }
+                    }
+
+                    // Adds a number for each transaction
+                    rowData = i + ") " + rowData;
+                    
+                    // Adds the rowData to final email, followed by 2 lines for spacing
+                    tableData += rowData + '\n' + '\n';
+                }
+
+                // If there is no data to be sent, a message indicating so will be displayed
+                if (transactionTypes.length === 0) {
+                    document.getElementById('emailNoDataMessage').style.display = 'inline';
+                    document.getElementById('emailSuccessMessage').style.display = 'none';
+                    document.getElementById('emailErrorMessage').style.display = 'none';
+                    return;
+                }
+                
+                // Sends the email itself
+                emailjs.send('service_2bxnkfl', 'template_wue9mep', {
+                    to_email: emailAddress,
+                    transaction_data: tableData  
+                })
+                
+                // If some error occurs, a message indicating so will be displayed
+                // If no error occurs and the email is successfully sent, a message indicating so will be displayed
+                .then(function(response) {
+                    document.getElementById('emailNoDataMessage').style.display = 'none';
+                    document.getElementById('emailSuccessMessage').style.display = 'inline';
+                    document.getElementById('emailErrorMessage').style.display = 'none';
+                }, function(error) {
+                    document.getElementById('emailNoDataMessage').style.display = 'none';
+                    document.getElementById('emailSuccessMessage').style.display = 'none';
+                    document.getElementById('emailErrorMessage').style.display = 'inline';
+                });
+            });
+        </script>
+
+        <script>
+            // If the user is logged in, they will go to the mainpage, but if not they are redirected to an error page
+            const successfullLogin = localStorage.getItem('successfullLogin');
+            if (successfullLogin === null){
+                window.location.href = 'errorPage.html'
+            }
+        </script>
+
+        <!--Links the JavaScript page-->
+        <script src="mainPage.js"></script>
+    </body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <!--Declares information about the website-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Budget Buddy</title>
+
+        <!--Links external CSS stylesheet-->
+        <link rel="stylesheet" href=./style.css>
+    </head>
+
+    <body>
+        <!--Generates the navigation bar with several links to take the user to different pages-->
+        <nav>
+            <a id="budgetBuddyNavBar" href="mainPage.html">Budget Buddy</a>
+            <a id="helpNavBar" href="help.html">Help</a>
+            <a id="signInNavBar" href="signIn.html">Sign In</a>
+            <a id="createAccountNavBar" href="createAccount.html">Create Account</a>
+        </nav>
+
+        <!--Title, description, and icon-->
+        <div align="center">
+            <h1 id="signInPageTitle"> Budget Buddy</h1>
+            <label id="description">Your financial friend.</label>
+            <br><br><br><br><br><br><br><br>
+            <img src="./budgetBuddyIcon-2.png" id="icon" align="center">
+        </div>
+        
+        <!--Sign in message-->
+        <h2 align="center" id="signInText"> Sign In </h2>
+
+        <!--Form for signing in-->
+        <form action="mainPage.html" id="signInForm">
+            <!--Username and password inputs-->
+            <div align="center">
+                <input type="text" id="username" placeholder="username" required>
+                <br>
+                <input type="password" id="password" placeholder="password" required>
+            </div>
+
+            <!--Reset button, sign in button, error message-->
+            <div align="center">
+                <input id="resetButton" type="reset">
+                <input id="signInButton" type="submit" value="Sign in">
+                <br>
+
+                <label id="errorMessage" style="font-size: 14px; display: none; color: red;">Incorrect username or password.</label>
+            </div>
+        </form>
+
+        <br>
+
+        <!--Message to create account-->
+        <div align="center">
+            <label style="font-size: 18px"> Don't have an account? </label>
+            <a id="createAccountButton" href="createAccount.html" style="font-size: 18px">
+                Create One Here.
+            </a>
+        </div>
+
+        <br>
+
+        <!--Script to validate username and password-->
+        <script>
+            const signInForm = document.getElementById('signInForm');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // When sign in button is clicked, it will check if the input username and password match the ones from the create account page
+            signInForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                // Retrieves local storage (items from create account page)
+                const storedUsername = localStorage.getItem('username');
+                const storedPassword = localStorage.getItem('password');
+
+                if (usernameInput.value === storedUsername && passwordInput.value === storedPassword) {
+                    window.location.href = 'mainPage.html';      
+                    localStorage.setItem('successfullLogin', 'true'); // Successfully logged in
+                } else {
+                    errorMessage.style.display= 'inline'; // Displays error message
+                }
+            });
+
+        </script>
+    </body>
+
+</html>

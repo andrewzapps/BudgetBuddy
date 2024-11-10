@@ -1,0 +1,664 @@
+/* Removes step buttons for number inputs*/
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Sets specific properties for img elements in instructions class */
+.instructions img {
+    border-radius: 20px;
+    width: 900px;
+    margin-bottom: 30px;
+    transition: transform 0.3s; 
+}
+
+/* Adds hover effect for images in instructions class*/
+.instructions img:hover {
+    transform: scale(1.05);
+}
+
+/* Sets specific properties for p elements in instructions class */
+.instructions p {
+    font-family: 'Tahoma', 'Verdana';
+    font-size: 1.5em;
+    color: black;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Sets specific properties for elements in instructions class */
+.instructions{
+    max-width: 1100px;
+    max-height: 7780px;
+    margin: 5px auto;
+    padding: 5px;
+    background: #ecf9ed;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Sets specific properties for instructionsTitle */
+#instructionsTitle {
+    text-transform: uppercase;
+    font-size: 3em;
+    color: black; 
+    margin: 20px 0; 
+    font-weight: bold; 
+    transition: transform 0.3s;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Adds hover effect for instructionsTitle */ 
+#instructionsTitle:hover{
+    transform: scale(1.1);
+}
+
+/* Adds click effect for instructionsTitle */
+#instructionsTitle:active{
+    transform: scale(1.15);
+    transform: rotate(-2deg);
+}
+
+/* Removes functionality from buttons in disabled class */
+button.disabled{
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Adds functionality from buttons in enabled class */
+button.enabled {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Hides all elements in withdrawalInfo class */
+.withdrawalInfo{
+    display: none;
+}
+
+/* Hides all elements in depositInfo class */
+.depositInfo{
+    display: none;
+}
+
+/* Sets specific properties for all elements in currentBalance class */
+.currentBalance{
+    max-width: 500px;
+    max-height: 100px;
+    margin: 5px auto;
+    padding: 5px;
+    background: #ecf9ed;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Hover effect for all elements in currentBalance class */
+.currentBalance:hover{
+    transform: scale(1.05);
+}
+
+/* Click effect for all elements in currentBalance class */
+.currentBalance:active{
+    transform: scale(1.10) rotate(-2deg);
+}
+
+/* Sets specific properties for all h1 elements */
+h1{
+    font-family: 'Tahoma', 'Verdana';
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    font-size: 50px;
+    margin-top: 50px;
+}
+
+/* Sets specific properties for all h2 elements */
+h2{
+    margin-top: 5px;
+    font-family: 'Tahoma', 'Verdana';
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+/* Animation for createAccountTitle, signInText */
+#createAccountTitle, #signInText {
+    animation: hoverMove 2s ease-in-out infinite;
+}
+
+/* Makes hoverMove animation */
+@keyframes hoverMove {
+    0% {
+      transform: translateY(-4);  /* Start at the normal position */
+      transform: scale(1);
+    }
+    50% {
+      transform: translateY(-4px); /* Move up by 10px */
+      transform: scale(1.05);
+    }
+    100% {
+      transform: translateY(0);  /* Return to the original position */
+      transform: scale(1);
+    }
+}
+
+/* Sets specific properties for all a elements */
+a{
+    font-family: 'Tahoma', 'Verdana';
+    color: black;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    text-decoration:none;
+}
+
+/* Hover effect for all a elements */
+a:hover{
+    text-decoration: underline;
+}
+
+/* Sets specific properties for all nav elements */
+nav {
+    background-color: #6FC276;
+    padding: 10px;
+    text-align: right;
+}
+
+/* Sets specific properties for all nav a elements */
+nav a {
+    font-family: 'Tahoma', 'Verdana';
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Hover effect for all nav a elements */
+nav a:hover {
+    background-color: #47a84f;
+    text-decoration: underline;
+}
+
+/* Nav bar settings */
+#helpNavBar{
+    margin-left: 640px;
+}
+#createAccountNavBar{
+    margin-right: 24px;
+}
+
+/* Sets specific properties for table elements and table data elements */
+table, td {
+    border: 3px solid black;
+    margin: 20px 0;
+    padding: 10px;
+    background: #d9fddc;
+    border-radius: 5px;
+}
+
+/* Sets specific properties for all table elements */
+table{
+    width: 98%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+/* Sets specific properties for all table header elements */
+th {
+    font-family: 'Tahoma', 'Verdana';
+    font-weight: bold;
+    border: 3px solid black;
+    background: #6FC276;
+    color: black;
+    padding: 10px;
+    margin: 20px 0;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Adds hover effect for all table header elements */
+th:hover{
+    background-color: #47a84f;
+    transform: scale(1.1);
+}
+
+/* Sets specific properties for all table data elements */
+td {
+    padding: 15px;
+    text-align: center;
+    background-color: #d9fddc;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Adds hover effect for all table data elements */
+td:hover{
+    background: #afeab4;
+    transform: scale(1.03);
+}
+
+/* Sets specific properties for all paragraph elements */
+p {
+    font-family: 'Tahoma', 'Verdana';
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Sets specific properties for all div elements */
+div {
+    font-family: 'Tahoma', 'Verdana';
+}
+
+/* Sets specific properties for all label elements */
+label {
+    font-family: 'Tahoma', 'Verdana';
+    font-size: 13px;
+}
+
+/* Sets specific properties for all button elements */
+button {
+    font-family: 'Tahoma', 'Verdana';
+    padding: 6px 16px;
+    border-radius: 5px;
+    border-style: solid;
+    background-color: #6FC276;
+    font-size: 15px;
+    border-color: black;
+    border-width: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Adds hover effect for all button elements */
+button:hover {
+    cursor: pointer;
+    background-color: #47a84f;
+    transform: translateY(2px);
+}
+
+/* Adds click effect for all button elements*/
+button:active{
+    transform: translateY(6px);
+}
+
+/* Sets specific properties for all select elements*/
+select {
+    font-family: 'Tahoma', 'Verdana';
+    border-width: 2px;
+    border-radius: 5px;
+    border-style: solid;
+    font-size: 13px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+    border-color: black;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Adds hover effect for all select elements */
+select:hover {
+    transform: scale(1.05);
+}
+
+/* Sets specific properties for all input elements */
+input {
+    font-family: 'Tahoma', 'Verdana';
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: black;
+    padding: 4px;
+    border-style: solid;
+    font-size: 13px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Adds hover effect for all input elements */
+input:hover {
+    transform: scale(1.05);
+}
+
+/* Sets specific properties for all reset inputs */
+input[type="reset"]{
+    font-family: 'Tahoma', 'Verdana';
+    padding: 6px 16px;
+    border-radius: 5px;
+    border-style: solid;
+    background-color: #6FC276;
+    font-size: 15px;
+    border-color: black;
+    border-width: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Adds hover effect for all reset inputs */
+input[type="reset"]:hover{
+    cursor: pointer;
+    background-color: #47a84f;
+    transform: translateY(2px);
+}
+
+/* Adds click effect for all reset inputs */
+input[type=reset]:active{
+    transform: translateY(6px);
+}
+
+/* Sets specific properties for all submit inputs */
+input[type="submit"]{
+    font-family: 'Tahoma', 'Verdana';
+    padding: 6px 16px;
+    border-radius: 5px;
+    border-style: solid;
+    background-color: #6FC276;
+    font-size: 15px;
+    border-color: black;
+    border-width: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Adds hover effect for all submit inputs */
+input[type="submit"]:hover{
+    cursor: pointer;
+    background-color: #47a84f;
+    transform: translateY(2px);
+}
+
+/* Adds click effect for all submit inputs */
+input[type=submit]:active{
+    transform: translateY(6px);
+}
+
+/* Sets specific properties for specific ID selector or class selector*/
+#icon{
+    top: 205px;
+    left: 540px;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 0px;
+    position: absolute;
+    overflow: hidden;
+    transition: transform 0.4s ease;
+    -webkit-user-select: none;
+    user-select: none;
+}
+#icon:hover{
+    transform: scale(1.15);
+    cursor: pointer;
+}
+#icon:active{
+    transform: scale(1.25);
+}
+#currentBalanceLabel2, #currentBalanceDisplay, #dollarSign{
+    font-size: 25px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+#currentBalanceDisplay{
+    margin-left: 5px;
+}
+#hideWithdrawalButton, #hideDepositButton{
+    display: none;
+}
+#amountInputWithdrawalLabel{
+    font-size: 16px;
+    display: none;
+}
+#amountInputWithdrawal{
+    width: 180px;
+    height: 25px;
+    display: none;
+    margin-bottom: 10px;
+}
+#categorySelectLabel{
+    display: none;
+    font-size: 16px;
+}
+#categorySelect{
+    width: 200px;
+    height: 30px;
+    display: none;
+}
+#storeInputLabel{
+    font-size: 16px;
+    display: none;
+}
+#storeInput{
+    width: 200px;
+    height: 25px;
+    margin-bottom: 5px;
+    display: none;
+}
+#dateSelectWithdrawalLabel{
+    display: none;
+    font-size: 16px;
+}
+#dateSelectWithdrawal, #dateSelectDeposit{
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    transform: translateY(5px);
+    display: none;
+    margin-right: 20px;
+}
+#dateSelectWithdrawal:hover{
+    transform: scale(1.05) translateY(5px);
+}
+#dateSelectDeposit{
+    margin-bottom: 12px;
+}
+#amountInputDepositLabel{
+    font-size: 16px;
+    display: none;
+}
+#amountInputDeposit{
+    display: none;
+    width: 200px;
+    height: 25px;
+}
+#sourceSelectLabel{
+    font-size: 16px;
+    display: none;
+}
+#sourceSelect{
+    width: 200px;
+    height: 30px;
+    display: none;
+}
+#dateSelectDepositLabel{
+    display: none;
+    font-size: 16px;
+}
+#dateSelectDeposit{
+    display: none;
+}
+#submitWithdrawalButton, #submitDepositButton{
+    display: none;
+}
+#submitEditButton{
+    display: none;
+}
+.filterInfo{
+    display: none;
+}
+#hideFilterButton{
+    display: none;
+    height: 30px;
+    width: 110px;
+    padding-top: 4px;
+    padding-bottom: 5px;
+    margin-bottom: 4px;
+    margin-right: 5px;
+}
+#filterButton{
+    height: 30px;
+    width: 100px;
+    padding-top: 4px;
+    padding-bottom: 5px;
+    margin-bottom: 4px;
+    margin-right: 5px;
+}
+#searchButton{
+    height: 25px;
+    width: 100px;
+    padding-bottom: 22px;
+    padding-top: 4px;
+    margin-bottom: 4px;
+    margin-right: 5px; 
+}
+#hideSearchButton{
+    height: 30px;
+    width: 114px;
+    padding-top: 4px;
+    padding-bottom: 5px;
+    margin-bottom: 6px;
+    margin-right: 5px;
+}
+#recordWithdrawalButton, #hideWithdrawalButton{
+    margin-bottom: 5px;
+    padding: 6px 25px;
+    width: 300px;
+    height: 50px;
+}
+#hideWithdrawalButton{
+    margin-bottom: 10px;
+}
+#recordDepositButton, #hideDepositButton{
+    margin-bottom: 10px;
+    padding: 6px 37px;
+    width: 300px;
+    height: 50px;
+}
+#submitWithdrawalButton{
+    margin-bottom: 25px
+}
+#submitDepositButton{
+    margin-bottom: 15px;
+}
+#storeSearchLabel, #storeSearchInput, #hideSearchButton{
+    display: none;
+}
+#storeSearchInput{
+    margin-bottom: 20px;
+    margin-right: 5px;
+    height: 25px;
+    width: 180px;
+}
+#filterAmountInput{
+    margin-bottom: 4px; 
+    margin-right: 5px;
+    height: 25px;
+}
+#filterDateInput{
+    margin-bottom: 4px;
+    margin-right: 5px;
+    height: 20px;
+    width: 100px;
+    text-align: center;
+}
+#filterSourceSelect{
+    margin-bottom: 4px;
+    margin-right: 5px;
+    height: 30px;
+}
+#filterCategorySelect{
+    height: 30px;
+}
+#transactionTypeSelect{
+    height: 30px;
+}
+#clearFilterButton, #applyFilterButton{
+    width: 80px;
+    height: 30px;
+    font-size: 15px;
+    padding-top: 3px;
+    padding-bottom: 15px;
+}
+#applyFilterButton{
+    margin-right: 5px;
+}
+#username, #password{
+    width: 200px;
+    height: 30px;
+    margin-bottom: 5px;
+    border-width: 3px;
+}
+#password{
+    margin-bottom: 15px;
+}
+#gradeSelect{
+    margin: 0;
+    width: 50px;
+    height: 18px;
+    margin-bottom: 5px;
+    border-width: 3px;
+}
+#usernameInput, #passwordInput, #confirmPasswordInput{
+    margin-bottom: 5px;
+    width: 200px;
+    height: 30px;
+    border-width: 3px;
+}
+#confirmPasswordInput{
+    margin-bottom: 25px;
+}
+#emailInput{
+    margin-bottom: 5px;
+    border-width: 3px;
+    width: 200px;
+    height: 30px;
+}
+#resetButton, #signInButton{
+    margin-bottom: 10px;
+}
+#resetCreatedPassUser, #createAccountButton2{
+    margin-bottom: 40px;
+}
+#signInPageTitle{
+    font-size: 55px;
+    position: relative;
+    animation: slideIn 1s ease-out forwards;
+    transform-origin: top;
+    transition: transform 0.4s ease;
+    margin-bottom: 10px;
+    -webkit-user-select: none;
+    user-select: none;
+}
+#signInPageTitle:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+#signInPageTitle:active{
+    transform: scale(1.15) rotate(-3deg);
+}
+#hideSummaryButton{
+    margin-bottom: 10px;
+    margin-top: 25px;
+}
+#sendEmailButton{
+    margin-bottom: 5px;
+}
+#generateMonthSummaryButton, #generateWeekSummaryButton{
+    margin-bottom: 5px;
+}
+#description{
+    position: relative;
+    transform-origin: top;
+    overflow: hidden;
+    animation: slideIn 1s ease-out forwards;
+    transition: font-size 0.4s ease;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Makes slideIn animation*/
+@keyframes slideIn {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 0;
+    }
+}

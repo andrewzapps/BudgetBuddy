@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <!--Declares information about the website-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Budget Buddy</title>
+
+        <!--Links external CSS stylesheet-->
+        <link rel="stylesheet" href=./style.css>
+    </head>
+
+    <body>
+        <!--Generates the navigation bar with several links to take the user to different pages-->
+        <nav>
+            <a id="budgetBuddyNavBar" href="mainPage.html">Budget Buddy</a>
+            <a id="helpNavBar" href="help.html">Help</a>
+            <a id="signInNavBar" href="signIn.html">Sign In</a>
+            <a id="createAccountNavBar" href="createAccount.html">Create Account</a>
+        </nav>
+
+        <!--Create account title-->
+        <h2 align="center" style="margin-top: 20px; margin-bottom: 20px; font-size: 40px" id="createAccountTitle">Create Account</h2>
+
+        <!--Sign in form-->
+        <form action="signIn.html">
+            <div align="center">
+                <!--Grade input-->
+                <label style="font-size: 16px">Grade: </label>
+                <input id="gradeSelect" style="margin-right: 75px" type="number" min=1 max=12 required>
+                
+                <br>
+                
+                <!--Birthday input-->
+                <label style="font-size: 16px">Birthday (optional):</label>
+                <input style="margin-bottom: 20px; margin-right: 140px; border-width: 3px"type="date">
+            </div>
+
+            <div align="center">
+                <!--Email input-->
+                <label style="margin-left: 78px; font-size: 16px;">Email: </label>
+                <input id="emailInput" placeholder="email" required>
+
+                <br>
+
+                <!--Username input-->
+                <label style="margin-left: 47px; font-size: 16px">Username: </label>
+                <input id="usernameInput"  placeholder="username" required>
+
+                <br>
+
+                <!--Password input-->
+                <label style="margin-left: 50px; font-size: 16px">Password: </label>
+                <input id="passwordInput" type="password" placeholder="password" minlength="8" required>
+
+                <br>
+
+                <!--Confirm password input-->
+                <label style="font-size: 16px">Confirm password: </label>
+                <input style="margin-right: 10px" id="confirmPasswordInput" type="password" placeholder="confirm password">
+
+                <br>
+
+                <!--Reset button and create account button-->
+                <input id="resetCreatedPassUser" type="reset" value="Reset">
+                <button id="createAccountButton2" type="submit" class="disabled">Create Account</button>
+
+                <br>
+
+                <!--Message to sign in-->
+                <label style="font-size: 18px"> Already have an account? </label>
+                <a href="signIn.html" style="font-size: 18px">
+                    Sign In Here.
+                </a>
+            </div>
+
+            <script>
+                localStorage.clear(); // Signs out
+
+                // Declares constant inputs as the inputs
+                const usernameInput = document.getElementById('usernameInput');
+                const passwordInput = document.getElementById('passwordInput');
+                const confirmPasswordInput = document.getElementById('confirmPasswordInput');
+                const createAccountButton = document.getElementById('createAccountButton2');
+                const emailInput = document.getElementById('emailInput');
+
+                function validatePassword() {
+                    // Checks if password and confirm password input match
+                    if (passwordInput.value === confirmPasswordInput.value && passwordInput.value.length >= 8) {
+                        createAccountButton.classList.add('enabled'); // Adds 'enabled' class to createAccountButton
+                        createAccountButton.classList.remove('disabled'); // Removes 'disabled' class to createAccountButton
+
+                        // Declare constants as input values
+                        const username = usernameInput.value;
+                        const password = passwordInput.value;
+                        const email = emailInput.value;
+                        
+                        // Sets local storage items to input values
+                        localStorage.setItem('username', username);
+                        localStorage.setItem('password', password);
+                        localStorage.setItem('email', email);
+                    } else {
+                        // If password and confirm password do not match
+                        createAccountButton.classList.remove('enabled'); // Removes 'enabled' class to createAccountButton
+                        createAccountButton.classList.add('disabled'); // Adds 'disabled' class to createAccountButton
+                    }
+                }   
+
+                function updateLocalStorage() {
+                    // Declares constants as input values
+                    const username = usernameInput.value;
+                    const password = passwordInput.value;
+                    const email = emailInput.value;
+                    
+                    // Updates localStorage items to input values
+                    localStorage.setItem('username', username);
+                    localStorage.setItem('password', password);
+                    localStorage.setItem('email', email);
+                }
+
+                passwordInput.addEventListener('input', validatePassword); // Runs validatePassword when passwordInput value changes
+                confirmPasswordInput.addEventListener('input', validatePassword); // Runs validatePassword when confirmPasswordInput changes
+                createAccountButton.addEventListener('click', updateLocalStorage); // Runs updateLocalStorage when createAccountButton is clicked
+            </script>
+        </form>
+    </body>
+
+</html>
